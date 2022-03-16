@@ -15,24 +15,39 @@
 // body.classList.add ("dark-mode");
 // // body.classList.remove ("dark-mode")
 
-const ligth = document.querySelector("#light")
-const Dark = document.querySelector("#Dark")
+const mode = document.querySelector("#mode")
+// const Dark = document.querySelector("#Dark")
+
+const body =document.body;
+
+body.className = localStorage.getItem("mode")
+console.log(localStorage.getItem("mode"))
+mode.addEventListener("click", function(){
+
+     if(mode.innerHTML == "Dark Mode"){
+           mode.innerHTML = "Light Mode"
+           localStorage.removeItem("mode")
+           localStorage.setItem("mode","dark")
+     }else{
+      mode.innerHTML = "Dark Mode"
+      localStorage.removeItem("mode")
+
+      localStorage.setItem("mode","light")
 
 
-ligth.addEventListener("click", function(){
-      const body =document.body;
-      body.classList.add("light");
-      document.getElementById("light").style.backgroundColor =('red');
+     }
+      body.classList.toggle("dark");
+//      mode.style.backgroundColor =('blck');
       console.log("I am clicked")
 
 });
 
-Dark.addEventListener("click", function(){
-      const body =document.body;
-      body.classList.add("dark");
-      console.log("I am clicked")
+// Dark.addEventListener("click", function(){
+//       const body =document.body;
+//       body.classList.add("dark");
+//       console.log("I am clicked")
 
-});
+// });
 
 const ul = document.querySelector("ul");
 Array.from(ul.children).forEach(function(li){
